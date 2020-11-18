@@ -99,10 +99,16 @@ int test1(){
             }
         }
         if(!stk.empty()){
+            if(st.size()==0){
+                problem=true;
+                if(isPopped==false){
+                    problem_before_popping=true;
+                }
+            }
             if(st.top()!=stk.top()){
                 problem=true;
                 if(isPopped==false){
-                    problem_before_popping=false;
+                    problem_before_popping=true;
                 }
             }
         }
@@ -170,10 +176,16 @@ int test2(){
             }
         }
         if(!stk.empty()){
+            if(st.size()==0){
+                problem=true;
+                if(isPopped==false){
+                    problem_before_popping=true;
+                }
+            }
             if(st.front()!=stk.front()){
                 problem=true;
                 if(isPopped==false){
-                    problem_before_popping=false;
+                    problem_before_popping=true;
                 }
             }
         }
@@ -214,17 +226,17 @@ char sample_paranthesis[3][15]={"((()()))", "())()()(())", "(()"};
 char paranthesis[100105];
 int test3(){
     printf("Checking your isBalanced function\n");
-    if(isBalanced(sample_paranthesis[0], strlen(sample_paranthesis[0]))==0){
+    if(isBalanced(sample_paranthesis[0], strlen(sample_paranthesis[0]))!=1){
         printf("Your function identifies %s as imbalanced\n", sample_paranthesis[0]);
         print_marks(0, 10, 3);
         return 0;
     }
-    if(isBalanced(sample_paranthesis[1], strlen(sample_paranthesis[1]))==1){
+    if(isBalanced(sample_paranthesis[1], strlen(sample_paranthesis[1]))!=0){
         printf("Your function identifies %s as balanced\n", sample_paranthesis[1]);
         print_marks(0, 10, 3);
         return 0;
     }
-    if(isBalanced(sample_paranthesis[2], strlen(sample_paranthesis[2]))==1){
+    if(isBalanced(sample_paranthesis[2], strlen(sample_paranthesis[2]))!=0){
         printf("Your function identifies %s as balanced\n", sample_paranthesis[2]);
         print_marks(0, 10, 3);
         return 0;
@@ -253,7 +265,7 @@ int test3(){
         }
     }
     paranthesis[lim]=0;
-    if(isBalanced(paranthesis, lim)==0){
+    if(isBalanced(paranthesis, lim)!=1){
         printf("Your isBalanced checker identifies balanced sequences as imbalanced\n");
         print_marks(0, 10, 3);
         return 0;
@@ -286,7 +298,7 @@ int test3(){
         }
     }
     paranthesis[lim]=0;
-    if(isBalanced(paranthesis, lim)==1){
+    if(isBalanced(paranthesis, lim)!=0){
         printf("Your isBalanced checker does not correctly check if a closing bracket has a matching opening bracket\n");
         print_marks(0, 10, 3);
         return 0;
