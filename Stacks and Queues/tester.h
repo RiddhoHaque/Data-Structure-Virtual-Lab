@@ -1,4 +1,4 @@
-#include "functions.h"
+#include "functions_Saiful.h"
 #include <bits/stdc++.h>
 #define XX first
 #define YY second
@@ -89,6 +89,7 @@ int test1(){
         else{
             toss=rand()%100;
             if(cnt>49500 || toss<75){
+                v=rand()%100;
                 stk.push(v);
                 st.push(v);
             }
@@ -116,6 +117,25 @@ int test1(){
             problem_with_size=true;
         }
         cnt--;
+    }
+    while(!stk.empty()){
+        if(st.size()==0){
+            problem=true;
+            if(isPopped==false){
+                problem_before_popping=true;
+            }
+        }
+        if(st.top()!=stk.top()){
+            problem=true;
+            if(isPopped==false){
+                problem_before_popping=true;
+            }
+        }
+        if(stk.size()!=st.size()){
+            problem_with_size=true;
+        }
+        if(st.size()>0) st.pop();
+        if(stk.size()>0) stk.pop();
     }
     clock_t ed_time=clock();
     if(!problem && !problem_with_size){
@@ -165,7 +185,9 @@ int test2(){
         }
         else{
             toss=rand()%100;
+            v=rand()%100;
             if(cnt>49500 || toss<75){
+                v=rand()%100;
                 stk.push(v);
                 st.push(v);
             }
@@ -194,6 +216,25 @@ int test2(){
         }
         cnt--;
     }
+    while(!stk.empty()){
+        if(st.size()==0){
+            problem=true;
+            if(isPopped==false){
+                problem_before_popping=true;
+            }
+        }
+        if(st.front()!=stk.front()){
+            problem=true;
+            if(isPopped==false){
+                problem_before_popping=true;
+            }
+        }
+        if(stk.size()!=st.size()){
+            problem_with_size=true;
+        }
+        if(st.size()>0) st.pop();
+        if(stk.size()>0) stk.pop();
+    }
     clock_t ed_time=clock();
     if(!problem && !problem_with_size){
         if(((ed_time-st_time)*1.0)/(CLOCKS_PER_SEC*1.0)>3.0){
@@ -201,6 +242,7 @@ int test2(){
             print_marks(17, 20, 2);
             return 17;
         }
+
         print_marks(20, 20, 2);
         return 20;
     }
