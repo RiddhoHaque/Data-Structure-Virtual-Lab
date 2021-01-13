@@ -111,10 +111,6 @@ struct ChangingArrays{
         return 1;
     }
 
-    void merger(int a, int b, int v){
-
-    }
-
     void update(int x, int y){
 
     }
