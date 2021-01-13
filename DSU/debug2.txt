@@ -1,0 +1,6 @@
+The array contained 10 elements
+8 4 9 4 6 5 9 4 2 0 
+No updates were done
+The index on which the query was done was 7
+Expected Output: 4
+Your output: 1
