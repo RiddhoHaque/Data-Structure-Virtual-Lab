@@ -1,9 +1,0 @@
-In a DSU with 15 elements, the merging operations were done on
-11 9
-11 0
-4 3
-11 10
-4 10
-The elements on which the query was done were: 1 1
-Expected Output: 1
-Your DSU's output: 0
